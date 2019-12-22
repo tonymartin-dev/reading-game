@@ -1,0 +1,12 @@
+.modal-body{
+    height: 65vh;
+    background-image: url('../../assets/Celebration-Free-PNG-Image.png');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2{
+        font-size: 40px;
+        color: black;
+        background-color: rgba($color: white, $alpha: 0.25)
+    }
+}

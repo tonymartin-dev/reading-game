@@ -1,0 +1,12 @@
+{
+    "levels":[
+        {
+            "stages": ["casa", "mono", "moto", "coco", "pala", "papa", "mama", "bebé", "pipí", "tutú"],
+            "options": ["patata", "coco", "mesa", "mano", "cono", "luna", "loco", "mimo", "rato", "moto", "mudo", "roto", "bola", "ruta", "rata", "pata", "bola", "roto", "malo", "mora", "risa", "puro", "rico", "vela"]
+        },
+        {
+            "stages": ["pato", "gota", "sopa", "luna", "mano", "gato", "pera", "seta", "río", "silla"],
+            "options": ["patata", "coco", "mesa", "mano", "cono", "luna", "loco", "mimo", "rato", "moto", "mudo", "roto", "bola", "ruta", "rata", "pata", "bola", "roto", "malo", "mora", "risa", "puro", "rico", "vela"]
+        }
+    ]
+}

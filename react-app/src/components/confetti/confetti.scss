@@ -1,0 +1,62 @@
+$particles-number: 15;
+
+#confetti {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  position: absolute;
+	overflow: hidden;
+  .focus {
+    position: absolute;
+    bottom: 0;
+  }
+  .particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    &.yellow {
+      background-color: yellow;
+    }
+    &.red {
+      background-color: red;
+    }
+    &.green {
+      background-color: green;
+    }
+    &.blue {
+      background-color: blue;
+    }
+    &.white {
+      background-color: white;
+    }
+  }
+  @for $i from 1 through $particles-number {
+    .particle:nth-child(#{$i}) {
+      animation: confetiUpDown#{$i} 7s;
+    }
+  }
+}
+
+@for $i from 1 through $particles-number {
+  @keyframes confetiUpDown#{$i} {
+    0% {
+      top: 0vh;
+      left: 0vx;
+    }
+    15% {
+      top: random(10)-90 + vh;
+      left: random(300)-150 + px;
+    }
+    @for $number from 1 to 8 {
+      $percentage: 15 + $number * 10;
+      #{$percentage * 1%} {
+        transform: translateX(random(40)-20 + px);
+      }
+    }
+    100% {
+      top: 0vh;
+      left: random(300)-150 + px;
+    }
+  }
+}

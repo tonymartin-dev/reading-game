@@ -1,5 +1,5 @@
 import React from 'react';
-import { shuffle } from '../utils'
+import { shuffle } from '../../common/utils'
 import $ from 'jquery/dist/jquery';
 
 function StageButtons(props){

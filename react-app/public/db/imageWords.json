@@ -7,6 +7,10 @@
 		{
 			"stages": ["pato", "gota", "sopa", "luna", "mano", "gato", "pera", "seta", "río", "silla"],
 			"options": ["patata", "coco", "mesa", "mano", "cono", "luna", "loco", "mimo", "rato", "moto", "mudo", "roto", "bola", "ruta", "rata", "pata", "bola", "roto", "malo", "mora", "risa", "puro", "rico", "vela"]
+		},
+		{
+			"stages": ["maestra", "chaqueta", "muñeca", "estuche", "trueno", "botella", "caballo", "libreta", "queso", "guitarra"],
+			"options": ["patata", "ordenador", "prueba", "tronco", "cochecito", "tijeras", "ciclomotor", "muñeco", "cerdito", "quesito", "bellota", "cocina", "escoba", "fregona", "rizos", "soplar", "antiguo", "roto", "estanque", "mora", "risa", "puro", "macarrón", "pradera"]
 		}
 	]
 }

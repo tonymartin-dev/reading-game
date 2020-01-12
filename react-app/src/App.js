@@ -11,8 +11,8 @@ import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import ImageWords from './components/image-words/index.js'
-import PruebaFn from './components/prueba-fn/index.js'
+import ImageWords from './pages/image-words/index.js'
+import PruebaFn from './pages/prueba-fn/index.js'
 
 
 function Home() {

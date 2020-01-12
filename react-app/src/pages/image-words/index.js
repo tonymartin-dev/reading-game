@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 //Components
-import StageButtons from '../stage-buttons';
-import SuccessModal from '../success-modal';
+import StageButtons from '../../shared/stage-buttons';
+import SuccessModal from '../../shared/success-modal';
 //Styles and assets
 import './image-words.scss'
 import images from '../../assets/img/images';
 //Utils
-import { getRandomInt, removeAccents } from '../utils';
+import { getRandomInt, removeAccents } from '../../common/utils';
 
 function ImageWords(){
 	
@@ -104,9 +104,9 @@ function ImageWords(){
 							)}
 						</div>
 					)
-      )}
+      		)}
       
-      <SuccessModal stage={stage} isLastStage={isLastStage} goToNextStage={goToNextStage} ></SuccessModal>
+      		<SuccessModal stage={stage} isLastStage={isLastStage} goToNextStage={goToNextStage} ></SuccessModal>
 
 		</div>
 		:null			

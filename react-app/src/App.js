@@ -11,8 +11,7 @@ import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import ImageWords from './pages/image-words/index.js'
-import PruebaFn from './pages/prueba-fn/index.js'
+import ImageWords from './pages/image-words'
 
 
 function Home() {
@@ -28,7 +27,6 @@ function App() {
           <ul className="main-menu">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/imageWords">ImageWords</Link></li>
-            <li><Link to="/prueba-fn">Prueba FN</Link></li>
           </ul>
         </nav>
 
@@ -37,9 +35,6 @@ function App() {
         <Switch>
           <Route path="/imageWords">
             <ImageWords />
-          </Route>
-          <Route path="/prueba-fn">
-            <PruebaFn saludo="'hihi'" />
           </Route>
           <Route path="/">
             <Home />

@@ -6,6 +6,8 @@
   "main": "index.js",
   "scripts": {
     "electron": "",
+    "build": "npm run react-build && node build.js",
+    "react-build": "cd react-app && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,7 +19,9 @@
   "devDependencies": {
     "cordova-electron": "^1.1.1",
     "cordova-plugin-whitelist": "^1.3.4",
-    "electron": "^1.8.8"
+    "electron": "^1.8.8",
+    "ncp": "^2.0.0",
+    "rimraf": "^3.0.0"
   },
   "cordova": {
     "plugins": {

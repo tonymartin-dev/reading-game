@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from "react-router-dom";
 //Components
 import StageButtons from '../../shared/stage-buttons';
 import SuccessModal from '../../shared/success-modal';
@@ -78,6 +79,7 @@ function ImageWords(){
 	return (
 		currentGame ? 
 		<div className="container">
+      		<Link to="/">Home</Link>
 			<div className="img-container">
 				<img className="main-img" src={currentGame.img} alt=""></img>
 			</div>

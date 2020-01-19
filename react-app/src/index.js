@@ -5,8 +5,16 @@ import './i18n';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+//Redux
+import { Provider } from "react-redux";
+import store from './common/store'
+
 const startApp = () => {
-    ReactDOM.render(<App />, document.getElementById('root'));
+    ReactDOM.render(
+      <Provider store={store}>
+        <App />
+      </Provider>, 
+      document.getElementById('root'));
 }
 
 if(!window.cordova) {

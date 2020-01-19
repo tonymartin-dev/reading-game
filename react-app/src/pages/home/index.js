@@ -11,7 +11,6 @@ function Home(){
       <ul className="main-menu">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/imageWords">ImageWords</Link></li>
-        <li><Link to="/articles">articles</Link></li>
         <ul className="sublist">
           <li>Stage 1</li>
         </ul>

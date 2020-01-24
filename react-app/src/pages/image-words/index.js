@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link} from "react-router-dom";
+import { useSelector } from "react-redux";
 //Components
 import StageButtons from '../../shared/stage-buttons';
 import SuccessModal from '../../shared/success-modal';
@@ -10,14 +10,18 @@ import images from '../../assets/img/images';
 import { getRandomInt, removeAccents } from '../../common/utils';
 
 function ImageWords(){
-	
-	const [level, setLevel] = useState(0);
+
+  const counter = useSelector(state => state);
+		
+	const [level, setLevel] = useState(counter.level -1);
 	const [stage, setStage] = useState(0);
 	const [stageCompleted, setStageState] = useState(false);
 	const [errors, setErrors] = useState(0);
 	const [currentGame, setCurrentGame] = useState(null);
 	const [isLastStage, setLastStage] = useState(false);
 	const [isLastLevel, setLastLevel] = useState(false);
+
+	console.log('[ImageWords] States: ',{level, stage, stageCompleted, errors, currentGame, isLastLevel, isLastStage })
 
 	const buttonsPerPage = 4;
 
@@ -79,7 +83,6 @@ function ImageWords(){
 	return (
 		currentGame ? 
 		<div className="container">
-      		<Link to="/">Home</Link>
 			<div className="img-container">
 				<img className="main-img" src={currentGame.img} alt=""></img>
 			</div>

@@ -12,17 +12,23 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 import ImageWords from './pages/image-words';
 import Home from './pages/home';
+import Articles from './pages/articles';
+import Header from './shared/header'
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header />
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/imageWords">
             <ImageWords />
+          </Route>
+          <Route path="/articles">
+            <Articles />
           </Route>
           <Route path="/">
             <Home />

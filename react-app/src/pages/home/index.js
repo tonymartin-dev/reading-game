@@ -17,28 +17,36 @@ function LevelButtons(props){
   return numbers.map((number, i)=>{
     console.log({number, i})
     return (
-      <button key={number} onClick={()=>{props.goToLevel(number)}}>Nivel {number}</button>
+      <button key={number} onClick={()=>{props.goToLevel(number, props.component)}}>Nivel {number}</button>
     )
   })
 }
 
 function Home(){
 
-  const [levels, setLevels] = useState(0);
+  const [wordsLevels, setSyllablesLevels] = useState(0);
+  const [syllablesLevels, setSyllabesLevels] = useState(0);
   const history = useHistory();
 
   const dispatch = useDispatch();
 
-  const goToLevel = (_number)=>{
+  const goToLevel = (_number, _route)=>{
     console.log('Going to level ', _number)
     dispatch(setLevel(_number));
-    history.push('/imageWords')
+    history.push('/'+_route)
   }
 
   fetch('../db/imageWords.json').then(res=>
     res.json().then(data=>{
       console.log({data});
-      setLevels(data.levels.length);
+      setSyllablesLevels(data.levels.length);
+    })
+  );
+
+  fetch('../db/imageSyllables.json').then(res=>
+    res.json().then(data=>{
+      console.log({data});
+      setSyllabesLevels(data.levels.length);
     })
   );
 
@@ -52,7 +60,11 @@ function Home(){
       </nav>
       <div>
         <p>Juego de imágenes con palabras</p>
-        <LevelButtons levels={levels} goToLevel={goToLevel} />
+        <LevelButtons levels={wordsLevels} goToLevel={goToLevel} component="imageWords" />
+      </div>
+      <div>
+        <p>Juego de imágenes con sílabas</p>
+        <LevelButtons levels={syllablesLevels} goToLevel={goToLevel} component="imageSyllables" />
       </div>
       
     </div>

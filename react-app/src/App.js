@@ -10,6 +10,7 @@ import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/popper.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js';
 
+import ImageSyllables from './pages/image-syllables';
 import ImageWords from './pages/image-words';
 import Home from './pages/home';
 import Articles from './pages/articles';
@@ -24,6 +25,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/imageSyllables">
+            <ImageSyllables />
+          </Route>
           <Route path="/imageWords">
             <ImageWords />
           </Route>

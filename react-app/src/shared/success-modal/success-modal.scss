@@ -10,3 +10,7 @@
         background-color: rgba($color: white, $alpha: 0.25)
     }
 }
+
+.modal.show{
+    display: block;
+}

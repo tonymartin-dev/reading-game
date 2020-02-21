@@ -1,0 +1,11 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    .points-container{
+        padding: 5px 10px;
+        background-color: greenyellow;
+        border-radius: 4px;
+    }
+}

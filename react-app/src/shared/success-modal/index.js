@@ -4,9 +4,9 @@ import './success-modal.scss'
 
 function SuccessModal(props) {
 
-	console.log({ props })
+	console.log('SuccessModal', { props })
 	return (
-		<div className="modal fade" id="success-modal" role="dialog" aria-hidden="true">
+		<div className="modal fade show" id="success-modal" role="dialog" aria-hidden="true">
 			<Confetti></Confetti>
 			<div className="modal-dialog" role="document">
 				<div className="modal-content">
@@ -19,7 +19,7 @@ function SuccessModal(props) {
 						<h2>¡MUY BIEN!</h2>
 					</div>
 					<div className="modal-footer">
-						<button className="btn btn-success" onClick={() => props.goToNextStage()} data-dismiss="modal">
+						<button className="btn btn-success" onClick={() => props.goToNextStage()}>
 							{(props.isLastStage ? '¡Terminado! Continúa' : 'Seguir' )}
 						</button>
 					</div>

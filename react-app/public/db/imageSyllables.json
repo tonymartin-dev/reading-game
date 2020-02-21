@@ -1,6 +1,22 @@
 {
 	"levels":[
 		{
+			"stages": [
+				{"word": "casa", "syllables": ["ca", "sa"]},
+				{"word": "mono", "syllables": ["mo", "no"]},
+				{"word": "moto", "syllables": ["mo", "to"]},
+				{"word": "coco", "syllables": ["co", "co"]},
+				{"word": "pala", "syllables": ["pa", "la"]},
+				{"word": "papá", "syllables": ["pa", "pá"]},
+				{"word": "mamá", "syllables": ["ma", "má"]},
+				{"word": "bebé", "syllables": ["be", "bé"]},
+				{"word": "pipí", "syllables": ["pi", "pí"]},
+				{"word": "tutú", "syllables": ["tu", "tú"]}
+			]
+		}
+	],
+	"proposals":[
+		{
 			"stages": ["casa", "mono", "moto", "coco", "pala", "papa", "mama", "bebé", "pipí", "tutú"],
 			"options": ["patata", "coco", "mesa", "mano", "cono", "luna", "loco", "mimo", "rato", "moto", "mudo", "roto", "bola", "ruta", "rata", "pata", "bola", "roto", "malo", "mora", "risa", "puro", "rico", "vela"]
 		},
@@ -11,12 +27,11 @@
 		{
 			"stages": ["maestra", "chaqueta", "muñeca", "estuche", "trueno", "botella", "caballo", "libreta", "queso", "guitarra"],
 			"options": ["patata", "ordenador", "prueba", "tronco", "cochecito", "tijeras", "ciclomotor", "muñeco", "cerdito", "quesito", "bellota", "cocina", "escoba", "fregona", "rizos", "soplar", "antiguo", "roto", "estanque", "mora", "risa", "puro", "macarrón", "pradera"]
-		}
-	],
-	"proposals":[
+		},
 		{
 			"stages": [ "coche", "árbol", "piano", "llave", "hamburguesa", "pingüino", "murciélago", "plato", "guitarra", "trompeta" ],
 			"options": ["guijarro", "alfombra", "cliente", "cocina", "armario", "árboles", "pantano", "valla", "rotulador", "garaje", "trombón", "patio", "hamburguesa", "ruta", "rata", "pata", "bola", "roto", "malo", "mora", "risa", "puro", "rico", "vela"]
+		
 		}
 	]
 }

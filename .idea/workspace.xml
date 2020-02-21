@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3887b958-a887-4a11-b684-b3872ac3d160" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/reading-game.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Y7osHIDr8WxEO71M8xeRFqIDpY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3887b958-a887-4a11-b684-b3872ac3d160" name="Default Changelist" comment="" />
+      <created>1582303265225</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582303265225</updated>
+      <workItem from="1582303266454" duration="748000" />
+      <workItem from="1582304123108" duration="287000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1944" y="201" width="582" height="676" key="RollbackChangesDialog" timestamp="1582303509372">
+      <screen x="1280" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1944" y="201" width="582" height="676" key="RollbackChangesDialog/67.27.1213.997/1280.0.1920.1080/3200.0.1280.1024@1280.0.1920.1080" timestamp="1582303509372" />
+    <state x="2083" y="455" width="303" height="167" key="VCS.ChangelistChooser" timestamp="1582303500396">
+      <screen x="1280" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2083" y="455" width="303" height="167" key="VCS.ChangelistChooser/67.27.1213.997/1280.0.1920.1080/3200.0.1280.1024@1280.0.1920.1080" timestamp="1582303500396" />
+  </component>
+</project>

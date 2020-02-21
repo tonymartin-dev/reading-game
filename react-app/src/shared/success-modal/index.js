@@ -4,10 +4,10 @@ import './success-modal.scss'
 
 function SuccessModal(props) {
 
-	console.log('SuccessModal', { props })
+	console.log('SuccessModal', { props });
 	return (
 		<div className="modal fade show" id="success-modal" role="dialog" aria-hidden="true">
-			<Confetti></Confetti>
+			<Confetti/>
 			<div className="modal-dialog" role="document">
 				<div className="modal-content">
 					<div className="modal-header">

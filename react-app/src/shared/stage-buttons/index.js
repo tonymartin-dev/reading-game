@@ -4,13 +4,13 @@ function StageButtons(props){
 
 	const selectOption = (_option)=>{
 		props.onOptionClick(_option);
-	}
+	};
 	
-	console.log('StageButtons', {props})
+	console.log('StageButtons', {props});
 	
 	let options = props.currentGame ? [...props.currentGame.options] : [];
 	
-	if(!options.length) return null;
+	if(!options.length) return;
 	
 	options = shuffle(options);
 	

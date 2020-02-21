@@ -7,7 +7,7 @@ function Header(){
   const counter = useSelector(state => state);
   const points = counter.points;
   const level = counter.level;
-  console.log({counter})
+  console.log({counter});
   return(
     <nav className="header">
       <Link to="/">

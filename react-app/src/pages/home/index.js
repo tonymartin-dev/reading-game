@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { setLevel } from '../../common/actions'
 import { useDispatch } from "react-redux";
 
@@ -13,9 +13,9 @@ function LevelButtons(props){
   for (let i = 0; i < props.levels; i++) {
     numbers.push(i+1)
   }
-  console.log({numbers})
+  console.log({numbers});
   return numbers.map((number, i)=>{
-    console.log({number, i})
+    console.log({number, i});
     return (
       <button key={number} onClick={()=>{props.goToLevel(number, props.component)}}>Nivel {number}</button>
     )
@@ -24,29 +24,29 @@ function LevelButtons(props){
 
 function Home(){
 
-  const [wordsLevels, setSyllablesLevels] = useState(0);
-  const [syllablesLevels, setSyllabesLevels] = useState(0);
+  const [wordsLevels, setWordsLevels] = useState(0);
+  const [syllablesLevels, setSyllablesLevels] = useState(0);
   const history = useHistory();
 
   const dispatch = useDispatch();
 
   const goToLevel = (_number, _route)=>{
-    console.log('Going to level ', _number)
+    console.log('Going to level ', _number);
     dispatch(setLevel(_number));
     history.push('/'+_route)
-  }
+  };
 
   fetch('../db/imageWords.json').then(res=>
     res.json().then(data=>{
       console.log({data});
-      setSyllablesLevels(data.levels.length);
+        setWordsLevels(data.levels.length);
     })
   );
 
   fetch('../db/imageSyllables.json').then(res=>
     res.json().then(data=>{
       console.log({data});
-      setSyllabesLevels(data.levels.length);
+      setSyllablesLevels(data.levels.length);
     })
   );
 

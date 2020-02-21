@@ -6,7 +6,7 @@ function shuffle(array) {
 		sorted.push(array[randomIndex]);
 		array.splice(randomIndex,1)
 	}
-	console.log({sorted})
+	console.log({sorted});
 	return sorted;
 
 }

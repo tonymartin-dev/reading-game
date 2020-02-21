@@ -33,16 +33,16 @@ $particles-number: 15;
   }
   @for $i from 1 through $particles-number {
     .particle:nth-child(#{$i}) {
-      animation: confetiUpDown#{$i} 7s;
+      animation: confettiUpDown#{$i} 7s;
     }
   }
 }
 
 @for $i from 1 through $particles-number {
-  @keyframes confetiUpDown#{$i} {
+  @keyframes confettiUpDown#{$i} {
     0% {
-      top: 0vh;
-      left: 0vx;
+      top: 0;
+      left: 0;
     }
     15% {
       top: random(10)-90 + vh;
@@ -55,7 +55,7 @@ $particles-number: 15;
       }
     }
     100% {
-      top: 0vh;
+      top: 0;
       left: random(300)-150 + px;
     }
   }

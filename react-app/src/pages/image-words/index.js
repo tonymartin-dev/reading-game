@@ -21,13 +21,13 @@ function ImageWords(){
 	const [isLastStage, setLastStage] = useState(false);
 	const [isLastLevel, setLastLevel] = useState(false);
 
-	console.log('[ImageWords] States: ',{level, stage, stageCompleted, errors, currentGame, isLastLevel, isLastStage })
+	console.log('[ImageWords] States: ',{level, stage, stageCompleted, errors, currentGame, isLastLevel, isLastStage });
 
 	const buttonsPerPage = 4;
 
 	const goToNextStage = ()=>{
 		const nextStage = stage+1;
-		setErrors(0)
+		setErrors(0);
 		setStageState(false);
 		if(isLastStage){
 			setStage(0);
@@ -35,7 +35,7 @@ function ImageWords(){
 		}else{
 			setStage(nextStage);
 		}
-	}
+	};
 
 	const goToNextLevel = ()=>{
 		const nextLevel = level+1;
@@ -43,14 +43,14 @@ function ImageWords(){
 		if(!isLastLevel){
 			setLevel(nextLevel);
 		}
-	}
+	};
 
 	const getCurrentGame = (_level, _stage, _gameData)=>{
 		const name = _gameData.levels[_level].stages[stage];
 		const img = images[removeAccents(name)];
 		const allOptions = _gameData.levels[_level].options;
 		setLastStage(stage+1 === _gameData.levels[_level].stages.length);
-		setLastLevel(level+1 === _gameData.levels.length)
+		setLastLevel(level+1 === _gameData.levels.length);
 		let options = new Set();
 		options.add(name);
 		while(options.size < buttonsPerPage){
@@ -60,7 +60,7 @@ function ImageWords(){
 			options.add(randomOption);
 		}
 		return{name, img, options}
-	}
+	};
 
 	function getGamesData(){
 		fetch('./db/imageWords.json').then(res=>
@@ -78,13 +78,13 @@ function ImageWords(){
 		setErrors(errors+1);
 	}
 
-	getGamesData()
+	getGamesData();
 
 	return (
 		currentGame ? 
 		<div className="container">
 			<div className="img-container">
-				<img className="main-img" src={currentGame.img} alt=""></img>
+				<img className="main-img" src={currentGame.img} alt=""/>
 			</div>
 			{(
 				stageCompleted ? 
@@ -111,7 +111,7 @@ function ImageWords(){
 					)
       		)}
       
-      		<SuccessModal stage={stage} isLastStage={isLastStage} goToNextStage={goToNextStage} ></SuccessModal>
+      		<SuccessModal stage={stage} isLastStage={isLastStage} goToNextStage={goToNextStage} />
 
 		</div>
 		:null			

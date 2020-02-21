@@ -10,7 +10,7 @@ function Confetti() {
 
 		if (!parentElement) return;
 
-		var elements = document.getElementsByClassName('focus');
+		const elements = document.getElementsByClassName('focus');
 		while(elements.length > 0){
 			elements[0].parentNode.removeChild(elements[0]);
 		}
@@ -34,10 +34,10 @@ function Confetti() {
 		return Math.floor(Math.random() * Math.floor(max));
 	}
 
-	useEffect(()=>confetti())
+	useEffect(()=>confetti());
 
 	return (
-		<div id="confetti"></div>
+		<div id="confetti"/>
 	)
 }
 

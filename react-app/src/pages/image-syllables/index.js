@@ -48,7 +48,7 @@ function ImageSyllables(){
     setResponse('');
     const nextStage = stage+1;
     if(isLastStage){
-      goToNextLevel();
+      return goToNextLevel();
     }else{
       setStage(nextStage);
     }

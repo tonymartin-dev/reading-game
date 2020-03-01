@@ -39,7 +39,7 @@ function ImageWords(){
 		showSuccessModal(false);
 		const nextStage = stage+1;
 		if(isLastStage){
-			goToNextLevel();
+			return goToNextLevel();
 		}else{
 			setStage(nextStage);
 		}

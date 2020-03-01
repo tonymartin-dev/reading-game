@@ -13,6 +13,20 @@
 				{"word": "pipí", "syllables": ["pi", "pí"]},
 				{"word": "tutú", "syllables": ["tu", "tú"]}
 			]
+		},
+		{
+			"stages": [
+				{"word": "pato", "syllables": ["pa", "to"]},
+				{"word": "gota", "syllables": ["go", "ta"]},
+				{"word": "sopa", "syllables": ["so", "pa"]},
+				{"word": "luna", "syllables": ["lu", "na"]},
+				{"word": "mano", "syllables": ["ma", "no"]},
+				{"word": "gato", "syllables": ["ga", "to"]},
+				{"word": "pera", "syllables": ["pe", "ra"]},
+				{"word": "seta", "syllables": ["se", "ta"]},
+				{"word": "río", "syllables": ["rí", "o"]},
+				{"word": "silla", "syllables": ["si", "lla"]}
+			]
 		}
 	],
 	"proposals":[

@@ -145,7 +145,7 @@ function ImageSyllables(){
     }
   };
   
-  const getGamesData = async()=>{
+  const getGamesData = async() => {
     //Obtain game data from service
     const [rawGamesData, rawUtils] = await Promise.all([
       fetch('./db/imageSyllables.json'),
@@ -161,7 +161,7 @@ function ImageSyllables(){
     setGamesData(gamesDataResponse);
     setLetters({vowels, consonants});
     //Pass game data to build the game structure
-    getCurrentGame(level, stage, gamesDataResponse, vowels, consonants);
+    await getCurrentGame(level, stage, gamesDataResponse, vowels, consonants);
   };
 
   return (

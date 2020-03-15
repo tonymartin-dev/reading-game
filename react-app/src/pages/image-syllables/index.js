@@ -17,7 +17,7 @@ function ImageSyllables(){
   const counter = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const [level, setLevel] = useState(counter.level -1);           // Current level
+  const [level, setLevel] = useState(counter.level);           // Current level
   const [stage, setStage] = useState(0);                          // Current stage
   const [gamesData, setGamesData] = useState(null);               // Object with current game's data
   const [currentGame, setCurrentGame] = useState(null);           // Object with current game's data
@@ -167,40 +167,40 @@ function ImageSyllables(){
   return (
 		currentGame ?
 		<div className="container">
-          <div className="img-container">
-            <img className="main-img" src={currentGame.img} alt=""/>
-          </div>
-          {(
-            stageCompleted ?
-              (
-                <div>
-                  <div className="button-container">
-                    <button className="btn btn-outline-primary">{currentGame.name}</button>
+      <div className="img-container">
+        <img className="main-img" src={currentGame.img} alt=""/>
+      </div>
+      {(
+        stageCompleted ?
+          (
+            <div>
+              <div className="button-container">
+                <button className="btn btn-outline-primary">{currentGame.name}</button>
+              </div>
+            </div>
+          ) :
+          (
+            <div>
+              <div className="button-container">
+                <StageButtons currentGame={currentGame} onOptionClick={onOptionClick}/>
+              </div>
+              <h2>{response}</h2>
+              {(
+                isErrorShown ?
+                  <div className="footer">
+                    <button className="btn btn-danger">Inténtalo de nuevo</button>
                   </div>
-                </div>
-              ) :
-              (
-                <div>
-                  <div className="button-container">
-                    <StageButtons currentGame={currentGame} onOptionClick={onOptionClick}/>
-                  </div>
-                  <h2>{response}</h2>
-                  {(
-                    isErrorShown ?
-                      <div className="footer">
-                        <button className="btn btn-danger">Inténtalo de nuevo</button>
-                      </div>
-                    : null
-                  )}
-                </div>
-              )
-          )}
+                : null
+              )}
+            </div>
+          )
+      )}
 
-          {(
-            isSuccessModalShown ?
-              <SuccessModal isLastStage={isLastStage} goToNextStage={goToNextStage}/>
-            : null
-          )}
+      {(
+        isSuccessModalShown ?
+          <SuccessModal isLastStage={isLastStage} onNext={goToNextStage}/>
+        : null
+      )}
 
 		</div>
 		:null

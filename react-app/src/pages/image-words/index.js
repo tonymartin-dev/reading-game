@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from "react-redux";
 //Components
 import StageButtons from '../../shared/stage-buttons';
@@ -8,12 +9,17 @@ import './image-words.scss'
 import images from '../../assets/img/images';
 //Utils
 import { getRandomInt, removeAccents } from '../../common/utils';
+//Redux
+import { addPoints, setLevel } from '../../common/actions';
+import { useDispatch } from "react-redux";
 
 function ImageWords(){
 
-  const counter = useSelector(state => state);
-		
-	const [level, setLevel] = useState(counter.level -1);
+	const counter = useSelector(state => state);
+	const dispatch = useDispatch();
+	const history = useHistory();
+
+	const [level, setCurrentLevel] = useState(counter.level);
 	const [stage, setStage] = useState(0);
 	const [gamesData, setGamesData] = useState(null);               // Object with current game's data
 	const [currentGame, setCurrentGame] = useState(null);
@@ -51,10 +57,12 @@ function ImageWords(){
 		const nextLevel = level+1;
 		showError(false);
 		if(nextLevel < gamesData.levels.length){
-			setLevel(nextLevel);
+			setCurrentLevel(nextLevel);
+			dispatch(setLevel(nextLevel));
 			setStage(0);
 		}else{
-			alert('END')
+			alert('END');
+			return history.push('/')
 		}
 		console.log('Going to next level...', nextLevel);
 		getCurrentGame(nextLevel, 0, gamesData);
@@ -73,8 +81,8 @@ function ImageWords(){
 			options.add(randomOption);
 		}
 		// Check if we are in the las stage and/or level
-		setLastStage(stage+1 === _gameData.levels[_level].stages.length);
-		setLastLevel(level+1 === _gameData.levels.length);
+		setLastStage(_stage+1 === _gameData.levels[_level].stages.length);
+		setLastLevel(_level+1 === _gameData.levels.length);
 		// Set current name and game options in the store
 		if(!currentGame || name !== currentGame.name){
 			setCurrentGame({name, img, options});
@@ -86,8 +94,10 @@ function ImageWords(){
 		showError(false);
 		if(_option === currentGame.name){
 			showSuccessModal(true);
+			dispatch(addPoints(5));
 		} else {
 			showError(true);
+			dispatch(addPoints(-1))
 		}
 	};
 
@@ -134,7 +144,7 @@ function ImageWords(){
 
 			{(
 				isSuccessModalShown ?
-					<SuccessModal isLastStage={isLastStage} goToNextStage={goToNextStage}/>
+					<SuccessModal isLastStage={isLastStage} onNext={goToNextStage}/>
 					: null
 			)}
 

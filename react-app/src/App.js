@@ -13,7 +13,6 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import ImageSyllables from './pages/image-syllables';
 import ImageWords from './pages/image-words';
 import Home from './pages/home';
-import Articles from './pages/articles';
 import Header from './shared/header'
 
 function App() {
@@ -30,9 +29,6 @@ function App() {
           </Route>
           <Route path="/imageWords">
             <ImageWords />
-          </Route>
-          <Route path="/articles">
-            <Articles />
           </Route>
           <Route path="/">
             <Home />

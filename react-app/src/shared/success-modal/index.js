@@ -19,7 +19,7 @@ function SuccessModal(props) {
 						<h2>¡MUY BIEN!</h2>
 					</div>
 					<div className="modal-footer">
-						<button className="btn btn-success" onClick={() => props.goToNextStage()}>
+						<button className="btn btn-success" onClick={() => props.onNext()}>
 							{(props.isLastStage ? '¡Terminado! Continúa' : 'Seguir' )}
 						</button>
 					</div>

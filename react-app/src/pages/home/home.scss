@@ -1,0 +1,16 @@
+.home-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  text-align: center;
+  margin-top: 50px;
+  .game-container{
+    margin-bottom: 25px;
+  }
+}
+
+.level-btn{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 5px;
+}

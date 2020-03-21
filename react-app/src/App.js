@@ -14,6 +14,7 @@ import ImageSyllables from './pages/image-syllables';
 import ImageWords from './pages/image-words';
 import Home from './pages/home';
 import Header from './shared/header'
+import ImageLetters from "./pages/image-letters";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/imageLetters">
+            <ImageLetters />
+          </Route>
           <Route path="/imageSyllables">
             <ImageSyllables />
           </Route>

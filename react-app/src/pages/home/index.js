@@ -50,6 +50,10 @@ function Home(){
         <h2>Juego de imágenes con sílabas</h2>
         <LevelButtons levels={syllablesLevels} goToLevel={goToLevel} component="imageSyllables" />
       </div>
+      <div className="game-container">
+        <h2>Juego de imágenes para escribir</h2>
+        <LevelButtons levels={syllablesLevels} goToLevel={goToLevel} component="imageLetters" />
+      </div>
     </div>
   )
 }

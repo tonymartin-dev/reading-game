@@ -170,7 +170,7 @@ function ImageSyllables(){
       <div className="img-container">
         <img className="main-img" src={currentGame.img} alt=""/>
       </div>
-      {(
+      {( /* Options */
         stageCompleted ?
           (
             <div>

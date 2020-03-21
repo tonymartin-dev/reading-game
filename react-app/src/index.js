@@ -15,7 +15,7 @@ const startApp = () => {
         <App />
       </Provider>, 
       document.getElementById('root'));
-}
+};
 
 if(!window.cordova) {
   startApp()

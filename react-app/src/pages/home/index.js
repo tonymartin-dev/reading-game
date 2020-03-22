@@ -40,7 +40,7 @@ function Home(){
 
     return (
     <div className="home-container">
-      <h1>El juego de las palabras</h1>
+      <h1>Juegos con letras</h1>
       <br/>
       <div className="game-container">
         <h2>Juego de imágenes con palabras</h2>
@@ -52,8 +52,15 @@ function Home(){
       </div>
       <div className="game-container">
         <h2>Juego de imágenes para escribir</h2>
-        <LevelButtons levels={syllablesLevels} goToLevel={goToLevel} component="imageLetters" />
+        <LevelButtons levels={wordsLevels} goToLevel={goToLevel} component="imageLetters" />
       </div>
+      <h1>Juegos con números</h1>
+      <button
+        className="btn level-btn"
+        onClick={()=>{goToLevel(0, 'numbersTable')}}
+      >
+        Tabla de números
+      </button>
     </div>
   )
 }

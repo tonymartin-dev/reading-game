@@ -1,7 +1,7 @@
 {
 	"levels":[
 		{
-			"stages": ["casa", "mono", "moto", "coco", "pala", "papa", "mama", "bebé", "pipí", "tutú"],
+			"stages": ["casa", "mono", "moto", "coco", "pala", "papá", "mamá", "bebé", "pipí", "tutú"],
 			"options": ["patata", "coco", "mesa", "mano", "cono", "luna", "loco", "mimo", "rato", "moto", "mudo", "roto", "bola", "ruta", "rata", "pata", "bola", "roto", "malo", "mora", "risa", "puro", "rico", "vela"]
 		},
 		{
@@ -15,7 +15,7 @@
 	],
 	"proposals":[
 		{
-			"stages": [ "coche", "árbol", "piano", "llave", "hamburguesa", "pingüino", "murciélago", "plato", "guitarra", "trompeta" ],
+			"stages": [ "coche", "árbol", "piano", "llave", "hamburguesa", "pingüino", "murciélago", "plato", "helicóptero", "trompeta" ],
 			"options": ["guijarro", "alfombra", "cliente", "cocina", "armario", "árboles", "pantano", "valla", "rotulador", "garaje", "trombón", "patio", "hamburguesa", "ruta", "rata", "pata", "bola", "roto", "malo", "mora", "risa", "puro", "rico", "vela"]
 		}
 	]

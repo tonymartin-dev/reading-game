@@ -29,9 +29,17 @@ function ImageWords(){
 	const [isLastStage, setLastStage] = useState(false);
 	const [isLastLevel, setLastLevel] = useState(false);
 
-	useEffect(() => {
-		getGamesData();
-	}, []);
+	const getGamesData = () => {
+		fetch('./db/imageWords.json').then(res=>
+			res.json().then(gamesDataResponse=>{
+				console.log('[getGamesData]',gamesDataResponse);
+				setGamesData(gamesDataResponse);
+				getCurrentGame(level, stage, gamesDataResponse);
+			})
+		)
+  };
+  
+	useEffect(getGamesData, []);
 
 	console.log('[ImageWords] States: ',{
 		level, stage, stageCompleted, isErrorShown, currentGame, isLastLevel, isLastStage
@@ -61,7 +69,6 @@ function ImageWords(){
 			dispatch(setLevel(nextLevel));
 			setStage(0);
 		}else{
-			alert('END');
 			return history.push('/')
 		}
 		console.log('Going to next level...', nextLevel);
@@ -101,15 +108,6 @@ function ImageWords(){
 		}
 	};
 
-	const getGamesData = () => {
-		fetch('./db/imageWords.json').then(res=>
-			res.json().then(gamesDataResponse=>{
-				console.log('[getGamesData]',gamesDataResponse);
-				setGamesData(gamesDataResponse);
-				getCurrentGame(level, stage, gamesDataResponse);
-			})
-		)
-	};
 
 	return (
 		currentGame ? 
@@ -143,9 +141,12 @@ function ImageWords(){
       		)}
 
 			{(
-				isSuccessModalShown ?
-					<SuccessModal isLastStage={isLastStage} onNext={goToNextStage}/>
-					: null
+				isSuccessModalShown &&
+          <SuccessModal
+            isLastStage={isLastStage}
+            isLastLevel={isLastLevel}
+            onNext={goToNextStage}
+          />
 			)}
 
 		</div>

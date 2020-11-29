@@ -2,9 +2,9 @@ import React from 'react';
 import Confetti from '../confetti';
 import './success-modal.scss'
 
-function SuccessModal(props) {
+function SuccessModal({onNext, isLastStage, isLastLevel}) {
 
-	console.log('SuccessModal', { props });
+	console.log('SuccessModal', { onNext, isLastStage, isLastLevel });
 	return (
 		<div className="modal fade show" id="success-modal" role="dialog" aria-hidden="true">
 			<Confetti/>
@@ -17,11 +17,22 @@ function SuccessModal(props) {
 					</div>
 					<div className="success modal-body">
 						<h2>¡MUY BIEN!</h2>
+            {!isLastLevel && isLastStage && (
+              <h3>¡Has completado este nivel!</h3>
+            )}
+            {isLastLevel && isLastStage && (
+              <h3>¡Has completado todos los niveles!</h3>
+            )}
 					</div>
 					<div className="modal-footer">
-						<button className="btn btn-success" onClick={() => props.onNext()}>
-							{(props.isLastStage ? '¡Terminado! Continúa' : 'Seguir' )}
-						</button>
+            {isLastLevel && isLastStage ? (
+              <button className="btn btn-success">Volver al menú</button>
+            ) : (
+              <button className="btn btn-success" onClick={() => onNext()}>
+                {(isLastStage ? '¡Terminado! Continúa' : 'Seguir' )}
+              </button>
+            )}
+					
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,7 @@
     height: 65vh;
     background-image: url('../../assets/Celebration-Free-PNG-Image.png');
     display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     h2{

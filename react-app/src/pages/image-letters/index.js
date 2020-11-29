@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router-dom";
 import images from "../../assets/img/images";
-import {getRandomInt, removeAccents} from "../../common/utils";
+import {removeAccents} from "../../common/utils";
 
 import './image-letters.scss'
 import SuccessModal from "../../shared/success-modal";
@@ -26,12 +26,58 @@ function ImageLetters(){
   const [isLastLevel, setLastLevel] = useState(false);
   const [userLetters, setUserLetters] = useState([]);
 
-  // let userLetters = (currentGame && currentGame.letters && !userLetters) ? currentGame.letters.map(()=>'') : [];
+  
+  const clearInputs = useCallback(
+    () => {
+      const inputs = document.querySelectorAll('.input-container input[type="text');
+    inputs.forEach((input, i) => {
+      input.value = '';
+      if (i === 0){
+        input.focus();
+      }
+    });
+    },
+    [],
+  );
+
+  const getCurrentGame = useCallback(
+    (_level, _stage, _gameData)=>{
+      clearInputs();
+      const name = _gameData.levels[_level].stages[_stage];
+      const letters = name.split('');
+      // userLetters = letters.map(()=>'');
+      setUserLetters(letters.map(()=>''));
+      const img = images[removeAccents(name)];
+      console.log({userLetters});
+      // Check if we are in the las stage and/or level
+      setLastStage(_stage+1 === _gameData.levels[_level].stages.length);
+      setLastLevel(_level+1 === _gameData.levels.length);
+      // Set current name and img in the store
+      if(!currentGame || name !== currentGame.name){
+        setCurrentGame({name, img, letters});
+      }
+      console.log('ready', {currentGame})
+    },
+    [clearInputs, currentGame, userLetters],
+  );
+
+  const getGamesData = useCallback(
+    () => {
+      fetch('./db/imageWords.json').then(res=>
+        res.json().then(gamesDataResponse=>{
+          console.log('[getGamesData]',gamesDataResponse);
+          setGamesData(gamesDataResponse);
+          getCurrentGame(level, stage, gamesDataResponse);
+        })
+      )
+    },
+    [level, stage, getCurrentGame],
+  );
 
   useEffect(() => {
     getGamesData();
     clearInputs();
-  }, []);
+  }, [clearInputs, getGamesData]);
 
   const goToNextStage = ()=>{
     showError(false);
@@ -55,39 +101,10 @@ function ImageLetters(){
       dispatch(setLevel(nextLevel));
       setStage(0);
     }else{
-      alert('END');
       return history.push('/')
     }
     console.log('Going to next level...', nextLevel);
     getCurrentGame(nextLevel, 0, gamesData);
-  };
-
-  const getCurrentGame = (_level, _stage, _gameData)=>{
-    clearInputs();
-    const name = _gameData.levels[_level].stages[_stage];
-    const letters = name.split('');
-    // userLetters = letters.map(()=>'');
-    setUserLetters(letters.map(()=>''));
-    const img = images[removeAccents(name)];
-    console.log({userLetters});
-    // Check if we are in the las stage and/or level
-    setLastStage(_stage+1 === _gameData.levels[_level].stages.length);
-    setLastLevel(_level+1 === _gameData.levels.length);
-    // Set current name and img in the store
-    if(!currentGame || name !== currentGame.name){
-      setCurrentGame({name, img, letters});
-    }
-    console.log('ready', {currentGame})
-  };
-
-  const getGamesData = () => {
-    fetch('./db/imageWords.json').then(res=>
-      res.json().then(gamesDataResponse=>{
-        console.log('[getGamesData]',gamesDataResponse);
-        setGamesData(gamesDataResponse);
-        getCurrentGame(level, stage, gamesDataResponse);
-      })
-    )
   };
 
   const clearInput = (e) => {
@@ -125,16 +142,6 @@ function ImageLetters(){
     showSuccessModal(isValid);
     showError(!isValid);
     dispatch(addPoints(isValid ? 5 : -1));
-  };
-
-  const clearInputs = () => {
-    const inputs = document.querySelectorAll('.input-container input[type="text');
-    inputs.forEach((input, i) => {
-      input.value = '';
-      if (i === 0){
-        input.focus();
-      }
-    });
   };
 
   return (
@@ -181,9 +188,12 @@ function ImageLetters(){
             :null
         )}
         {(
-          isSuccessModalShown ?
-            <SuccessModal isLastStage={isLastStage} onNext={goToNextStage}/>
-            : null
+          isSuccessModalShown &&
+            <SuccessModal
+              isLastStage={isLastStage}
+              isLastLevel={isLastLevel}
+              onNext={goToNextStage}
+            />
         )}
       </div>
 

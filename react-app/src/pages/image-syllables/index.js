@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from "react-redux";
 //Components
 import StageButtons from '../../shared/stage-buttons';
@@ -16,8 +17,9 @@ function ImageSyllables(){
 
   const counter = useSelector(state => state);
   const dispatch = useDispatch();
+	const history = useHistory();
 
-  const [level, setLevel] = useState(counter.level);           // Current level
+  const [level, setLevel] = useState(counter.level);              // Current level
   const [stage, setStage] = useState(0);                          // Current stage
   const [gamesData, setGamesData] = useState(null);               // Object with current game's data
   const [currentGame, setCurrentGame] = useState(null);           // Object with current game's data
@@ -30,9 +32,26 @@ function ImageSyllables(){
   const [isLastStage, setLastStage] = useState(false);            // Boolean passed to success modal to indicate if it must show end stage message or normal success message
   const [isLastLevel, setLastLevel] = useState(false);
 
-  useEffect(() => {
-    getGamesData();
-  }, []);
+  const getGamesData = async() => {
+    //Obtain game data from service
+    const [rawGamesData, rawUtils] = await Promise.all([
+      fetch('./db/imageSyllables.json'),
+      fetch('./db/utils.json')
+    ]);
+    const [gamesDataResponse, utils] = await Promise.all([
+       rawGamesData.json(),
+       rawUtils.json()
+    ]);
+    console.log('[getGamesData]', {gamesDataResponse, utils});
+    const vowels = utils.vowels.split('');
+    const consonants = utils.consonants.split('');
+    setGamesData(gamesDataResponse);
+    setLetters({vowels, consonants});
+    //Pass game data to build the game structure
+    await getCurrentGame(level, stage, gamesDataResponse, vowels, consonants);
+  };
+  
+  useEffect(getGamesData, []);
   
   console.log('[ImageSyllables] States: ',{
     level, stage, currentGame, stageCompleted, letters, name, response,
@@ -62,7 +81,7 @@ function ImageSyllables(){
       setLevel(nextLevel);
       setStage(0);
     }else{
-      alert('END')
+      return history.push('/')
     }
     console.log('Going to next level...', nextLevel)
     getCurrentGame(nextLevel, 0, gamesData, letters.vowels, letters.consonants);
@@ -145,25 +164,6 @@ function ImageSyllables(){
     }
   };
   
-  const getGamesData = async() => {
-    //Obtain game data from service
-    const [rawGamesData, rawUtils] = await Promise.all([
-      fetch('./db/imageSyllables.json'),
-      fetch('./db/utils.json')
-    ]);
-    const [gamesDataResponse, utils] = await Promise.all([
-       rawGamesData.json(),
-       rawUtils.json()
-    ]);
-    console.log('[getGamesData]', {gamesDataResponse, utils});
-    const vowels = utils.vowels.split('');
-    const consonants = utils.consonants.split('');
-    setGamesData(gamesDataResponse);
-    setLetters({vowels, consonants});
-    //Pass game data to build the game structure
-    await getCurrentGame(level, stage, gamesDataResponse, vowels, consonants);
-  };
-
   return (
 		currentGame ?
 		<div className="container">
@@ -197,9 +197,12 @@ function ImageSyllables(){
       )}
 
       {(
-        isSuccessModalShown ?
-          <SuccessModal isLastStage={isLastStage} onNext={goToNextStage}/>
-        : null
+        isSuccessModalShown &&
+          <SuccessModal
+            isLastStage={isLastStage}
+            isLastLevel={isLastLevel}
+            onNext={goToNextStage}
+          />
       )}
 
 		</div>
